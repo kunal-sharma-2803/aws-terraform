@@ -1,0 +1,5 @@
+# the environment such as Dev, Prod, Test
+environment = "Dev"
+
+# AWS Region to deploy resources
+region = "ap-south-1"
