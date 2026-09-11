@@ -1,0 +1,5 @@
+bucket_name = "Your bucket name for static files"
+region = "region to deploy resources"
+bucket_tags = {
+  "environment" = "dev"
+}
