@@ -1,0 +1,18 @@
+aws ec2 create-key-pair --key-name vpc-peering --region ap-south-1 --query 'KeyMaterial' --output text > vpc-peering-1.pem
+aws ec2 create-key-pair --key-name vpc-peering --region ap-south-2 --query 'KeyMaterial' --output text > vpc-peering-2.pem
+
+check file types
+file .\vpc-peering-1.pem 
+it should be 
+.\vpc-peering-primary.pem: PEM RSA private key
+
+if not then run following (for windows)
+Get-Content .\vpc-peering-1.pem | Set-Content -Encoding ascii .\vpc-peering-1-fixed.pem
+Get-Content .\vpc-peering-2.pem | Set-Content -Encoding ascii .\vpc-peering-2-fixed.pem
+
+give permissions for the correct files 
+chmod 400 vpc-peering-1.pem
+chmod 400 vpc-peering-2.pem
+
+ssh using (use correct .pem files)
+ssh -i .\vpc-peering-1.pem ubuntu@<PRIMARY_PUBLIC_IP>

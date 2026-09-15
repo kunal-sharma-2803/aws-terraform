@@ -25,3 +25,8 @@ variable "primary_vpc_subnet_cidr" {
 variable "secondary_vpc_subnet_cidr" {
   default = "10.1.1.0/24"
 }
+
+variable "instance_type" {
+  default = "t3.micro"
+}
+
